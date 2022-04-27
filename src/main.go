@@ -27,4 +27,45 @@ func  main()  {
 	area := base_cuadrado * base_cuadrado
 
 	fmt.Println(area)
+
+	x:= 50
+	y:=10
+
+	// suma
+	result :=x+y
+
+	fmt.Println("suma:", result)
+
+	// resta
+	result = x - y
+	
+	fmt.Println("resta:", result)
+
+	// multiplicación
+	result = x*y
+	
+	fmt.Println("multiplicación:", result)
+
+	// división
+	result =x /y
+
+	fmt.Println("división:", result)
+
+	// modulo
+	result = x % y
+
+	fmt.Println("modulo:", result)
+
+	// incremental
+	x++
+
+	fmt.Println("incremental:", x)
+
+	// decremetal
+	x--
+
+	fmt.Println("decremental:", x)
+
+	// Retos:
+	//     - area trapecio y circulo
 }
