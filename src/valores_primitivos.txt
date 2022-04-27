@@ -1,0 +1,26 @@
+Numeros enteros:
+int = depende del OS (32 o 64 bits)
+int8 = 8bits = -128 - 127
+int16 = 16bits = -2^15 - 2^15-1
+int32 = 32bits = -2^31 - 2^31-1
+int64 = 64bits = -2^63 - 2^63-1
+
+Enteros positivos: usados para optimizar memoria cundo se sabe que el valor siempre va a ser positivo.
+uint = depende del OS (32bits o 64)
+uint8 = 8bits = 0 - 127
+uint16 = 16bits = 0 - 2^15-1
+uint32 = 32bits = 0 - 2^31-1
+uint64 = 64bits = 0 - 2^63-1
+
+Decimales:
+float32 = 32bits = +/-1.18e^-38 - +/--3.4e^38
+float64 = 64bits = +/-2.23e^-308 - +/--1.8e^308
+
+Textos y Booleanos:
+string = ""
+bool = true or false
+
+Numeros complejos:
+complex64 = Real e imaginario float32
+complex128 = Real e imaginario float64
+ejemplo = c:=8+10i
