@@ -2,32 +2,27 @@ package main
 
 import "fmt"
 
-func  main()  {
-	// Retos:
-	//     - area trapecio y circulo
+func main() {
+	// Declaración de variables
+	string_hello := "Hello"
+	string_world := "world"
 
-	// Area trapecio
+	// Println
+	fmt.Println(string_hello, string_world)
+	fmt.Println(string_hello, string_world)
 
-	base_menor := 3.5
-	Base_mayor := 9.5
-	altura := 4.0
+	// Printf
+	nombre := "Platzi"
+	cursos := 500
 
-	paso1:= base_menor+Base_mayor
-	paso2:= paso1 / 2
-	area := paso2 * altura
+	fmt.Printf("%s tiene más de %d cursos\n", nombre, cursos)
+	fmt.Printf("%v tiene más de %v cursos\n", nombre, cursos)
 
-	fmt.Println("Area trapecio:", area)
+	//Sprintf
+	message := fmt.Sprintf("%s tiene más de %d cursos", nombre, cursos)
+	fmt.Println(message)
 
-
-	// Area circulo
-
-	pi := 3.144142
-	diametro := 8.0
-	radio := diametro / 2
-
-	radio_cuadrado := radio *radio
-	area = pi * radio_cuadrado
-
-	fmt.Println("Area circulo:", area, "^2")
-
+	// Tipos de datos
+	fmt.Printf("string_hello %T\n", string_hello)
+	fmt.Printf("cursos %T\n", cursos)
 }
