@@ -2,31 +2,23 @@ package main
 
 import "fmt"
 
-func normalFuncion(message string) {
-	fmt.Println(message)
+func trapecioArea(b, B, h float64) float64 {
+	altura := h
+	sum := b + B
+	mitad := sum / 2
+	return mitad * altura
 }
 
-func tripleArgument(a, b int, c string) {
-	fmt.Println(a, b, c)
-}
-
-func returnValue(a int) int {
-	return a * 2
-}
-
-func dobleReturn(a int) (c, d int) {
-	return a, a * 2
+func circuloArea(a float64) float64 {
+	pi := 3.144142
+	radio := a / 2
+	cuadrado_radio := radio * radio
+	area := pi * cuadrado_radio
+	return area
 }
 
 func main() {
-	normalFuncion("hello world")
-	tripleArgument(1, 2, "hello")
-	value := returnValue(2)
-	fmt.Println("Value:", value)
-	value1, value2 := dobleReturn(2)
-	fmt.Println(value1, value2)
-	// escape de valores en funciones de retorno
-	value1_2, _ := dobleReturn(2)
-	fmt.Println(value1_2)
+	fmt.Printf("Area trapecio: %v\n", trapecioArea(3.5, 9.5, 4.1))
+	fmt.Printf("Area circulo: %v\n", circuloArea(4.5))
 
 }
