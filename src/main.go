@@ -16,9 +16,15 @@ func main() {
 	}
 
 	// For forever
-	counter_forever := 1
-	for {
-		fmt.Println("\n\n", counter_forever)
-		counter_forever++
+	//counter_forever := 1
+	//for {
+	//	fmt.Println("\n\n", counter_forever)
+	//	counter_forever++
+	//}
+
+	// Reto con for condicional
+
+	for c := 10; c >= 1; c-- {
+		fmt.Println(c)
 	}
 }
