@@ -2,23 +2,23 @@ package main
 
 import "fmt"
 
-func trapecioArea(b, B, h float64) float64 {
-	altura := h
-	sum := b + B
-	mitad := sum / 2
-	return mitad * altura
-}
-
-func circuloArea(a float64) float64 {
-	pi := 3.144142
-	radio := a / 2
-	cuadrado_radio := radio * radio
-	area := pi * cuadrado_radio
-	return area
-}
-
 func main() {
-	fmt.Printf("Area trapecio: %v\n", trapecioArea(3.5, 9.5, 4.1))
-	fmt.Printf("Area circulo: %v\n", circuloArea(4.5))
+	// For condicional
+	for i := 1; i <= 10; i++ {
+		fmt.Println(i)
+	}
 
+	// For while
+	counter := 1
+	for counter <= 10 {
+		fmt.Println("\n", counter)
+		counter++
+	}
+
+	// For forever
+	counter_forever := 1
+	for {
+		fmt.Println("\n\n", counter_forever)
+		counter_forever++
+	}
 }
