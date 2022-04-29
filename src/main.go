@@ -1,30 +1,39 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"log"
+	"strconv"
+)
 
 func main() {
-	// For condicional
-	for i := 1; i <= 10; i++ {
-		fmt.Println(i)
+	// Condicional if
+	v := 2
+	if v == 1 {
+		fmt.Println("es:", v)
+	} else {
+		fmt.Println("distinto a:", v)
 	}
-
-	// For while
-	counter := 1
-	for counter <= 10 {
-		fmt.Println("\n", counter)
-		counter++
+	// with and
+	v2 := 3
+	if v == 2 && v2 != 3 {
+		fmt.Println("Los dos se cumplen")
+	} else {
+		fmt.Println("uno o los dos no se cumplen")
 	}
-
-	// For forever
-	//counter_forever := 1
-	//for {
-	//	fmt.Println("\n\n", counter_forever)
-	//	counter_forever++
-	//}
-
-	// Reto con for condicional
-
-	for c := 10; c >= 1; c-- {
-		fmt.Println(c)
+	// with or
+	if v != 2 || v2 == 2 {
+		fmt.Println("Uno o los dos se cumplen")
+	} else {
+		fmt.Println("No se cumple ninguno")
+	}
+	// ->Manejo de errores con if
+	// Convertir texto a numero
+	value, err := strconv.Atoi("jajjaja")
+	// nil: no existe error
+	if err != nil {
+		log.Fatal(err)
+	} else {
+		fmt.Println("value:", value)
 	}
 }
