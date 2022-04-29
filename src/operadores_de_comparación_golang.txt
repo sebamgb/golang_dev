@@ -1,0 +1,8 @@
+operadores de comparación en go:
+
+    == :exacto
+    != :distinto
+    < :menor que
+    > :mayor que
+    <= :menor igual que
+    >= :mayor igual que
