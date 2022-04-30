@@ -1,30 +1,19 @@
 package main
 
-import (
-	"fmt"
-)
+import "fmt"
+
+type car struct {
+	brand string
+	year  int
+}
 
 func main() {
-	// Map
-	n := make(map[string]int)
-	n["jose"] = 14
-	n["pepito"] = 13
+	// Instanciado
+	my_car := car{brand: "ford", year: 2022}
+	fmt.Println(my_car)
 
-	fmt.Println(n)
-
-	// Recorrido de map
-	for i, v := range n {
-		fmt.Println(i, v)
-	}
-
-	// Encontrar valor
-	value := n["jose"]
-	fmt.Println(value)
-
-	value = n["josep"]
-	fmt.Println(value) //si la llave no existe imprime el zero value del tipo de dato del valor
-
-	// existe?
-	value, ok := n["jose"]
-	fmt.Println(value, ok) //imprime el valor(value) y el booleano correspondiente a la existencia
+	// Otra manera
+	var another_car car
+	another_car.brand = "ferrari"
+	fmt.Println(another_car) //al no especificar todo el contenido del struct imrime los zero values del tipo de dato
 }
