@@ -5,21 +5,21 @@ import (
 )
 
 func main() {
-	// condiciones anidadas con switch
-	switch mod := 2 % 2; mod {
-	case 0:
-		fmt.Println("es par")
-	default:
-		fmt.Println("no es par")
-	}
-	//sin condicion
-	value := 100
-	switch {
-	case value < 100:
-		fmt.Println("es menor a 100")
-	case value > 100:
-		fmt.Println("es mayor a 100")
-	default:
-		fmt.Println("es 100")
+	// Defer
+	defer fmt.Println("hola")
+	fmt.Println("mundo")
+
+	// Continue y break
+	for i := 0; i < 10; i++ {
+		fmt.Println(i)
+		if i == 2 {
+			fmt.Println("es dos")
+			continue
+		} else {
+			if i == 8 {
+				fmt.Println("break")
+				break
+			}
+		}
 	}
 }
