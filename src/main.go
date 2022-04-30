@@ -2,32 +2,39 @@ package main
 
 import (
 	"fmt"
+	"strings"
 )
 
+func isPalindrom(text string) {
+	text = strings.ToLower(text)
+	var text_revers string
+	for i := len(text) - 1; i >= 0; i-- {
+
+		text_revers += string(text[i])
+
+	}
+	if text == text_revers {
+		fmt.Println("es palindromo")
+	} else {
+		fmt.Println("no es palindromo")
+	}
+}
+
 func main() {
-	// Arrays:
-	var array [4]int
-	array[0] = 1
-	array[1] = 2
-	fmt.Println(array, len(array), cap(array))
+	// Range
+	slice := []string{"hola", "que", "hace"}
+	for i, value := range slice {
+		fmt.Println(i, value)
+	}
+	// escape de indice
+	for _, value := range slice {
+		fmt.Println(value)
+	}
+	//escape valor
+	for i := range slice {
+		fmt.Println(i)
+	}
 
-	// Slices:
-	slice := []int{0, 1, 2, 3, 4, 5, 6}
-	fmt.Println(slice, len(slice), cap(slice))
-
-	// Metodos en el slice
-	fmt.Println(slice[0])
-	fmt.Println(slice[:3])  //último elemento exclusivo
-	fmt.Println(slice[2:4]) //primer elemento inclusivo y último exclusivo
-	fmt.Println(slice[4:])  //primer elemento inclusivo
-
-	// array inmutables, sin embargo silces no
-	// Append
-	slice = append(slice, 7)
-	fmt.Println(slice)
-
-	// Append nueva lista
-	new_slice := []int{8, 9, 10}
-	slice = append(slice, new_slice...)
-	fmt.Println(slice)
+	// Palindromo?
+	isPalindrom("Ama")
 }
