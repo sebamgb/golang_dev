@@ -2,10 +2,28 @@ package main
 
 import (
 	"fmt"
-	"log"
-	"strconv"
 )
 
+// Reto condicionales:
+//authentication
+func auth(u, p string) {
+	user := "seba"
+	password := "1234"
+	if u == user && p == password {
+		fmt.Println("access")
+	} else {
+		fmt.Println("access denied")
+	}
+}
+
+func par(a uint) {
+	fmt.Println(a)
+	if a%2 == 0 {
+		fmt.Println("es par")
+	} else {
+		fmt.Print("no es par")
+	}
+}
 func main() {
 	// Condicional if
 	v := 2
@@ -29,11 +47,16 @@ func main() {
 	}
 	// ->Manejo de errores con if
 	// Convertir texto a numero
-	value, err := strconv.Atoi("jajjaja")
+	//value, err := strconv.Atoi("ahcagxh")
 	// nil: no existe error
-	if err != nil {
-		log.Fatal(err)
-	} else {
-		fmt.Println("value:", value)
-	}
+	//if err != nil {
+	//	// log fatal luego de mostrar error termina el programa
+	//	log.Fatal(err)
+	//} else {
+	//	fmt.Println("value:", value)
+	//}
+	fmt.Println("par?:")
+	par(1)
+	fmt.Println()
+	auth("seba", "1324")
 }
