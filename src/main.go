@@ -2,39 +2,29 @@ package main
 
 import (
 	"fmt"
-	"strings"
 )
 
-func isPalindrom(text string) {
-	text = strings.ToLower(text)
-	var text_revers string
-	for i := len(text) - 1; i >= 0; i-- {
-
-		text_revers += string(text[i])
-
-	}
-	if text == text_revers {
-		fmt.Println("es palindromo")
-	} else {
-		fmt.Println("no es palindromo")
-	}
-}
-
 func main() {
-	// Range
-	slice := []string{"hola", "que", "hace"}
-	for i, value := range slice {
-		fmt.Println(i, value)
-	}
-	// escape de indice
-	for _, value := range slice {
-		fmt.Println(value)
-	}
-	//escape valor
-	for i := range slice {
-		fmt.Println(i)
+	// Map
+	n := make(map[string]int)
+	n["jose"] = 14
+	n["pepito"] = 13
+
+	fmt.Println(n)
+
+	// Recorrido de map
+	for i, v := range n {
+		fmt.Println(i, v)
 	}
 
-	// Palindromo?
-	isPalindrom("Ama")
+	// Encontrar valor
+	value := n["jose"]
+	fmt.Println(value)
+
+	value = n["josep"]
+	fmt.Println(value) //si la llave no existe imprime el zero value del tipo de dato del valor
+
+	// existe?
+	value, ok := n["jose"]
+	fmt.Println(value, ok) //imprime el valor(value) y el booleano correspondiente a la existencia
 }
