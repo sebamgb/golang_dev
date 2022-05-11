@@ -8,7 +8,7 @@ type CarPublic struct {
 	Year  int
 }
 
-// structs y funciones de acceso priado por comenzar con minúscula
+// structs y funciones de acceso privado por comenzar con minúscula
 type carPrivate struct {
 	brand string
 	year  int
