@@ -6,11 +6,22 @@ import (
 )
 
 func main() {
-	my_pc := mypackage.Pc{
-		Ram:   16,
-		Disk:  500,
-		Brand: "asus",
+	my_square := mypackage.Cuadrado{
+		Base: 2,
 	}
-	fmt.Println(my_pc.String())
+
+	my_rectangle := mypackage.Rectangulo{
+		Base:   2,
+		Altura: 4,
+	}
+	mypackage.Calcular(my_square)
+
+	mypackage.Calcular(my_rectangle)
+
+	// lista de interfaces
+	//-"slice" con interfaces para una lista con multiples tipos de datos
+	my_interface := []interface{}{"hello", 3, 4.5, true}
+
+	fmt.Println(my_interface...)
 
 }

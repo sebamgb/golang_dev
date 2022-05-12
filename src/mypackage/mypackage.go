@@ -80,3 +80,32 @@ var My_pc Pc
 func (My_pc Pc) String() string {
 	return fmt.Sprintf("tengo %dGB de ram, %dGB de espacio en disco y es marca %s \n", My_pc.Ram, My_pc.Disk, My_pc.Brand)
 }
+
+// ---o---
+
+// paquete para ejemplificar interfaces
+
+type figuras2d interface {
+	area() float64
+}
+
+type Cuadrado struct {
+	Base float64
+}
+
+type Rectangulo struct {
+	Base   float64
+	Altura float64
+}
+
+func (C Cuadrado) area() float64 {
+	return C.Base * C.Base
+}
+
+func (R Rectangulo) area() float64 {
+	return R.Base * R.Altura
+}
+
+func Calcular(f figuras2d) {
+	fmt.Println("Area:", f.area())
+}
