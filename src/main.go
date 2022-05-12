@@ -4,43 +4,35 @@ import (
 	"fmt"
 )
 
-type pc struct {
-	ram   int
-	disk  int
-	brand string
+type trapecio struct {
+	altura     float64
+	base_menor float64
+	base_mayor float64
 }
 
-// para acceder a la lectura de los valores en un struct antes del nombre de la función se le agreda un atributo con el tipo de dato del struct al que se quiere entrar
-func (my_pc pc) ping() {
-	fmt.Println(my_pc.brand, "pong")
+func (t *trapecio) trapecioArea() float64 {
+	sum := t.base_menor + t.base_mayor
+	mitad := sum / 2
+	return mitad * t.altura
 }
 
-// para modificar valores de un struct, con una función para optimizar codigo, se debe acceder al valor del struct delimitandolo como puntero con el asterisco
-func (my_pc *pc) duplicateRam() {
-	my_pc.ram = my_pc.ram * 2
+type circulo struct {
+	pi       float64
+	diametro float64
+}
 
+func (c *circulo) circuloArea() float64 {
+	radio := c.diametro / 2
+	cuadrado_radio := radio * radio
+	area := c.pi * cuadrado_radio
+	return area
 }
 
 func main() {
-	// declaración normal de varible
-	a := 50
-	// b apunta a la dirección de memoria de a osea es el puntero de a
-	b := &a
-
-	fmt.Println(b)
-	fmt.Println(*b) // con el '*' apuntamos a el valor de a
-
-	*b = 100
-	fmt.Println(a) // al madificar el puntero del volor de a tambien modificamos a
-
-	my_pc := pc{ram: 16, disk: 500, brand: "asus"}
-	fmt.Println(my_pc)
-
-	// llamamos a la funcion que se mete al struct
-	my_pc.ping()
-
-	fmt.Println(my_pc)
-	my_pc.duplicateRam()
+	c := circulo{pi: 3.144142, diametro: 4.5}
+	t := trapecio{altura: 4.0, base_menor: 3.5, base_mayor: 9.5}
+	fmt.Printf("Area trapecio: %v\n", t.trapecioArea())
+	fmt.Printf("Area circulo: %v\n", c.circuloArea())
 
 	fmt.Println(my_pc)
 }
