@@ -67,3 +67,16 @@ func (C *Circulo) CirculoArea(d float64) float64 {
 	area := C.pi * cuadrado_radio
 	return area
 }
+
+// ===== paquete para ejemplificar stringers =====
+type Pc struct {
+	Ram   int
+	Disk  int
+	Brand string
+}
+
+var My_pc Pc
+
+func (My_pc Pc) String() string {
+	return fmt.Sprintf("tengo %dGB de ram, %dGB de espacio en disco y es marca %s \n", My_pc.Ram, My_pc.Disk, My_pc.Brand)
+}
