@@ -28,44 +28,53 @@ func printMessge(text string) {
 // trapecio para reto
 
 type Trapecio struct {
-	altura     float64
-	base_menor float64
-	base_mayor float64
+	Altura     float64
+	Base_menor float64
+	Base_mayor float64
+	//area
+	sum   float64
+	mitad float64
 }
 
 // sacar area para el trapecio
 //-declaración de variable para función
 var T Trapecio
 
-func (T *Trapecio) TrapecioArea(b, B, h float64) float64 {
+func (T *Trapecio) area() float64 {
+	T.sum = T.Base_menor + T.Base_mayor
+	T.mitad = T.sum / 2
+	return T.mitad * T.Altura
+}
 
-	T.base_menor = b
-	T.base_mayor = B
-	T.altura = h
-	sum := b + B
-	mitad := sum / 2
-	return mitad * h
+//-striger para trapecio
+func (T Trapecio) string() string {
+	return fmt.Sprintf("El trapecio con altura %v, base menor %v y base mayor %v tiene area ", T.Altura, T.Base_menor, T.Base_mayor)
 }
 
 // circulo para el reto
 
 type Circulo struct {
-	pi       float64
-	diametro float64
+	Diametro float64
+	//area
+	radio          float64
+	cuadrado_radio float64
+	pi             float64
 }
 
 // sacar area al circulo
 //-declaración de variable usada en la función
 var C Circulo
 
-func (C *Circulo) CirculoArea(d float64) float64 {
-
+func (C *Circulo) area() float64 {
 	C.pi = 3.144142
-	C.diametro = d
-	radio := d / 2
-	cuadrado_radio := radio * radio
-	area := C.pi * cuadrado_radio
-	return area
+	C.radio = C.Diametro / 2
+	C.cuadrado_radio = C.radio * C.radio
+	return C.pi * C.cuadrado_radio
+}
+
+//-stringer para circulo
+func (C Circulo) string() string {
+	return fmt.Sprintf("El circulo de diametro %v tiene area ", C.Diametro)
 }
 
 // ===== paquete para ejemplificar stringers =====
@@ -108,4 +117,17 @@ func (R Rectangulo) area() float64 {
 
 func Calcular(f figuras2d) {
 	fmt.Println("Area:", f.area())
+}
+
+// ---o---
+// ===== interfaces al reto de las areas =====
+
+type figuras interface {
+	area() float64
+	string() string
+}
+
+func Cal(f figuras) {
+	fmt.Print(f.string())
+	fmt.Println(f.area())
 }
