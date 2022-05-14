@@ -1,19 +1,33 @@
 package main
 
 import (
-	"golang/src/mypackage"
+	"fmt"
+	"sync"
+	"time"
 )
 
-func main() {
-	my_trapecio := mypackage.Trapecio{
-		Base_menor: 3.5,
-		Base_mayor: 9.5,
-		Altura:     4,
-	}
-	my_circulo := mypackage.Circulo{
-		Diametro: 4,
-	}
+// ejemplificando las gp goroutines
+func say(t string, wg *sync.WaitGroup) {
+	defer wg.Done()
+	fmt.Println(t)
+}
 
-	mypackage.Cal(&my_trapecio)
-	mypackage.Cal(&my_circulo)
+func main() {
+	//-declaramos un wait group para acumular go routines
+	var wg sync.WaitGroup
+	fmt.Println("hello")
+	wg.Add(1)
+	//-empleando la cuncurrencia
+	go say("world", &wg)
+	//-slución a que se imprima el código con concurrencia no recomendable
+	//time.Sleep(time.Second * 1)
+	wg.Wait()
+
+	//--funciones anonimas y goroutines--
+
+	go func(t string) {
+		fmt.Println(t)
+	}("adios")
+	//-lo mejor es agragar esta rutina al wait group pero:
+	time.Sleep(time.Second * 1)
 }
