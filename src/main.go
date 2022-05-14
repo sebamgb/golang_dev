@@ -2,32 +2,30 @@ package main
 
 import (
 	"fmt"
-	"sync"
-	"time"
 )
 
-// ejemplificando las gp goroutines
-func say(t string, wg *sync.WaitGroup) {
-	defer wg.Done()
-	fmt.Println(t)
+// ejemplificando channels otra forma más usada de organizar las goroutines
+
+//-creamos una función
+//-con un parametro para un channel que recibe como entrada strings
+//-con afán de hacer más eficiente el código le indicamos si el channel va a ser de entrada o salida
+//entrada: chan<- typedata
+//salida: <-chan typedata
+func say(t string, c chan<- string) {
+	//ingresando string t en canal
+	//salida: t = <- chan
+	c <- t
 }
 
 func main() {
-	//-declaramos un wait group para acumular go routines
-	var wg sync.WaitGroup
+	//--declaramos un channel--
+	//-channel que maneja tipos de datos string y recibe una goroutine a la vez, si no se le indica el número de goroutines que maneje va a elegir uno dinamicamente
+	c := make(chan string, 1)
 	fmt.Println("hello")
-	wg.Add(1)
-	//-empleando la cuncurrencia
-	go say("world", &wg)
-	//-slución a que se imprima el código con concurrencia no recomendable
-	//time.Sleep(time.Second * 1)
-	wg.Wait()
-
-	//--funciones anonimas y goroutines--
-
-	go func(t string) {
-		fmt.Println(t)
-	}("adios")
-	//-lo mejor es agragar esta rutina al wait group pero:
-	time.Sleep(time.Second * 1)
+	go say("bye", c)
+	//-imprimimos la salida del dato en el canal
+	fmt.Println(<-c)
 }
+
+// primitivos o wait group para una optimizacion en el codigo
+// chanels más livianos de codigo para tareas que no necesiten tanta optimización
