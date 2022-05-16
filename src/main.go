@@ -1,13 +1,20 @@
 package main
 
-import "github.com/nsheremet/banjo"
+import (
+	"net/http"
+
+	"github.com/labstack/echo/v4"
+)
 
 func main() {
-	app := banjo.Create(banjo.DefaultConfig())
+	// intancia de echo
+	e := echo.New()
 
-	app.Get("/foo", func(ctx *banjo.Context) {
-		ctx.HTML("<h1>Hello from BONjO!</h1>")
+	// ruta
+	e.GET("/", func(c echo.Context) error {
+		return c.String(http.StatusOK, "hola mundo")
 	})
 
-	app.Run()
+	// servidor
+	e.Logger.Fatal(e.Start(":1323"))
 }
