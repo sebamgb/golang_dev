@@ -1,6 +1,0 @@
-operador and en go:
-    &&
-operador or en go:
-    ||
-operador not en go:
-    anteponer !
